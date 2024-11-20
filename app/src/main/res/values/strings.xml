@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="filtro">Filtro</string>
+    <string name="filterButtonText">Filtrar</string>
+    <string name="clearButtonText">Limpiar</string>
+    <string name="fireButtonText">Fuego</string>
+    <string name="waterButtonText">Agua</string>
+    <string name="grassButtonText">Planta</string>
+</resources>
