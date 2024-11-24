@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch4"
+        android:id="@+id/waterButton"
         android:layout_width="93dp"
         android:layout_height="39dp"
         android:layout_marginStart="32dp"
@@ -66,7 +66,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="@string/grassButtonText"
-        app:layout_constraintStart_toEndOf="@+id/switch4"
+        app:layout_constraintStart_toEndOf="@+id/waterButton"
         app:layout_constraintTop_toBottomOf="@+id/filterButton" />
 
     <androidx.recyclerview.widget.RecyclerView

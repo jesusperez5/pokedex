@@ -8,7 +8,7 @@ public class Pokemon {
     private tipo[] tipos;
     private String descripcion;
     private int imagen;
-    public enum tipo{
+    public enum tipo{ //Creamos enum para los tipos
         PLANTA, FUEGO, AGUA, VENENO, VOLADOR, BICHO, LUCHA, PSIQUICO, HIELO, ROCA
     }
 
