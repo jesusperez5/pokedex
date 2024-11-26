@@ -3,6 +3,6 @@
     <!-- Borde -->
     <solid android:color="@android:color/white" />
     <stroke
-        android:color="#000000"
-        android:width="4dp" />
+        android:color="#FFE0E0E0"
+        android:width="2dp" />
 </shape>

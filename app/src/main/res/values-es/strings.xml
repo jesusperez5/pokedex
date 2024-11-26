@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pokedex</string>
     <string name="filtro">Filtro</string>
@@ -6,14 +7,13 @@
     <string name="fireButtonText">Fuego</string>
     <string name="waterButtonText">Agua</string>
     <string name="grassButtonText">Planta</string>
-    <string name="clearLog">Filtro limpiado</string>
     <string name="filtro_realizado">Filtro realizado</string>
-    <string name="comprobacion">Comprobacion</string>
-    <string name="texto_del_filtro_antes_de_ser_eliminado">"Texto del filtro antes de ser eliminado: "</string>
-    <string name="texto_del_filtro_eliminado">"Texto del filtro eliminado: "</string>
+    <string name="clearLog">Filtro limpiado</string>
     <string name="error">ERROR</string>
     <string name="error_filtrando_por_tipos_error_en_cuestion">"Error filtrando por tipos, error en cuestion: "</string>
     <string name="error_filtrando_por_nombre_error_en_cuestion">"Error filtrando por nombre, error en cuestion: "</string>
     <string name="click_en_un_pokemon">Click en un pokemon</string>
-    <string name="botonLimpiar">Boton de limpiar</string>
+    <string name="comprobacion">Comprobacion</string>
+    <string name="texto_del_filtro_antes_de_ser_eliminado">"Texto del filtro antes de ser eliminado: "</string>
+    <string name="texto_del_filtro_eliminado">"Texto del filtro eliminado: "</string>
 </resources>

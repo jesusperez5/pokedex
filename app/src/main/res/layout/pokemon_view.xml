@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/border_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/border_card"
+        android:paddingTop="5dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="127dp"
             android:layout_height="131dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -24,38 +26,46 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="236dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="230dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
-            android:background="@drawable/border_textview"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/border_card"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center|start"
-            android:paddingStart="6dp"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/number"
-            android:layout_width="61dp"
+            android:layout_width="60dp"
             android:layout_height="32dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/border_card"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center|start"
-            android:paddingStart="6dp"
-            android:background="@drawable/border_textview"
+            android:paddingStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/types"
-            android:layout_width="131dp"
+            android:layout_width="152dp"
             android:layout_height="32dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/border_card"
+            android:fontFamily="sans-serif-black"
             android:gravity="center|start"
-            android:paddingStart="6dp"
-            android:background="@drawable/border_textview"
+            android:paddingStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
             app:layout_constraintStart_toEndOf="@+id/number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

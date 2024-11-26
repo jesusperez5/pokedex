@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -87,13 +88,11 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                 new Pokemon("Lapras", 131, new Pokemon.tipo[]{Pokemon.tipo.AGUA, Pokemon.tipo.HIELO}, "Está basado tanto en un plesiosaurio como en el monstruo del Lago Ness.", R.drawable.lapras),
                 new Pokemon("Vaporeon", 134, new Pokemon.tipo[]{Pokemon.tipo.AGUA}, "Evolución de Eevee, su nombre proviene del español vapor.", R.drawable.vaporeon),
                 new Pokemon("Flareon", 136, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "Evolución de Eevee, puede almacenar enegía termica en su interior.", R.drawable.flareon),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard),
-                new Pokemon("Ninetales", 6, new Pokemon.tipo[]{Pokemon.tipo.FUEGO}, "", R.drawable.charizard)
+                new Pokemon("Omanyte", 138, new Pokemon.tipo[]{Pokemon.tipo.AGUA, Pokemon.tipo.ROCA}, "Está basado en un amonites que era un tipo de molusco ahora extinto.", R.drawable.omanyte),
+                new Pokemon("Omastar", 139, new Pokemon.tipo[]{Pokemon.tipo.AGUA, Pokemon.tipo.ROCA}, "Evolución de Omanyte, pokemon extinto que solo se puede obtener de fosiles.", R.drawable.omastar),
+                new Pokemon("Kabuto", 140, new Pokemon.tipo[]{Pokemon.tipo.AGUA, Pokemon.tipo.ROCA}, "Se trata de un Pokémon regenerado a partir de un fósil, el fósil domo.", R.drawable.kabuto),
+                new Pokemon("Kabutops", 141, new Pokemon.tipo[]{Pokemon.tipo.AGUA, Pokemon.tipo.ROCA}, "Evolución de Kabuto, posee unas increíbles navajas muy afiladas como brazos.", R.drawable.kabutops),
+                new Pokemon("Moltres", 146, new Pokemon.tipo[]{Pokemon.tipo.FUEGO, Pokemon.tipo.VOLADOR}, "Ave legendaria, su nombre viene de molten (fundido) y tres", R.drawable.moltres)
                 ));
         //creamos el adaptador
         PokemonAdapter pokemonAdapter = new PokemonAdapter(pokemons, this);
@@ -106,14 +105,15 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
 
         EditText filterInput = findViewById(R.id.filterInput);
 
-        Button limpiar = findViewById(R.id.clearButton);
+        ImageButton limpiar = findViewById(R.id.clearButton);
         //Evento al darle click en limpiar
         limpiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("Comprobacion", "Texto del filtro antes de ser eliminado: " + filterInput.getText());
+                Log.i(getString(R.string.comprobacion), getString(R.string.texto_del_filtro_antes_de_ser_eliminado) + filterInput.getText());
                 filterInput.setText("");
-                Log.i("Comprobacion", "Texto del filtro eliminado: " + filterInput.getText());
+                Toast.makeText(MainActivity.this, getString(R.string.clearLog), Toast.LENGTH_SHORT).show();
+                Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.texto_del_filtro_eliminado) + filterInput.getText());
             }
         });
 
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                                    .filter(pokemon -> Arrays.stream(pokemon.getTipos()).anyMatch(tipos::contains))
                                    .collect(Collectors.toCollection(ArrayList::new));
                        } catch (Exception e) {
-                           Log.e("ERROR", "Error filtrando por tipos, error en cuestion: " + e.getMessage());
+                           Log.e(getString(R.string.error), getString(R.string.error_filtrando_por_tipos_error_en_cuestion) + e.getMessage());
                        }
                     }
                     if(!nombreFiltro.equals("")){ //si hay un valor en el filtro
@@ -152,12 +152,12 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                                     .filter(pokemon -> pokemon.getNombre().toLowerCase().contains(nombreFiltro.toLowerCase()))
                                     .collect(Collectors.toCollection(ArrayList::new));
                         } catch (Exception e) {
-                            Log.e("ERROR", "Error filtrando por nombre, error en cuestion: " + e.getMessage());
+                            Log.e(getString(R.string.error), getString(R.string.error_filtrando_por_nombre_error_en_cuestion) + e.getMessage());
                         }
                     }
                     PokemonAdapter pokemonFilteredAdapter = new PokemonAdapter(pokemonsFiltered, MainActivity.this); // creamos el nuevo adapter con los pokemons filtrados
                     recyclerView.setAdapter(pokemonFilteredAdapter);
-                    Toast.makeText(MainActivity.this, "Filtro realizado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.filtro_realizado, Toast.LENGTH_SHORT).show();
                 } else {
                     recyclerView.setAdapter(pokemonAdapter);
                 }
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
 
     @Override
     public void onItemClick(Pokemon pokemon) { // Evento para cuando clickas en un pokemon
-        Log.i("Comprobacion", "Click en un pokemon");
+        Log.i(getString(R.string.comprobacion), getString(R.string.click_en_un_pokemon));
         Toast.makeText(this, pokemon.getDescripcion(), Toast.LENGTH_SHORT).show();
     }
 }

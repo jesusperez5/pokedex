@@ -9,28 +9,18 @@
 
     <Button
         android:id="@+id/filterButton"
-        android:layout_width="98dp"
-        android:layout_height="45dp"
+        android:layout_width="110dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/filterButtonText"
         app:layout_constraintStart_toEndOf="@+id/filterInput"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/clearButton"
-        android:layout_width="98dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/clearButtonText"
-        app:layout_constraintStart_toEndOf="@+id/filterButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Switch
         android:id="@+id/fireButton"
         android:layout_width="93dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/fireButtonText"
@@ -39,8 +29,8 @@
 
     <EditText
         android:id="@+id/filterInput"
-        android:layout_width="179dp"
-        android:layout_height="42dp"
+        android:layout_width="188dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:ems="10"
@@ -52,9 +42,9 @@
     <Switch
         android:id="@+id/waterButton"
         android:layout_width="93dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="@string/waterButtonText"
         app:layout_constraintStart_toEndOf="@+id/fireButton"
         app:layout_constraintTop_toBottomOf="@+id/filterButton" />
@@ -62,9 +52,9 @@
     <Switch
         android:id="@+id/grassButton"
         android:layout_width="93dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="@string/grassButtonText"
         app:layout_constraintStart_toEndOf="@+id/waterButton"
         app:layout_constraintTop_toBottomOf="@+id/filterButton" />
@@ -73,9 +63,24 @@
         android:id="@+id/pokedex"
         android:layout_width="match_parent"
         android:layout_height="700dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fireButton" />
+
+    <ImageButton
+        android:id="@+id/clearButton"
+        android:layout_width="79dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/botonLimpiar"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/filterButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/basura" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
