@@ -105,6 +105,10 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
 
         EditText filterInput = findViewById(R.id.filterInput);
 
+        Switch fuego = findViewById(R.id.fireButton);
+        Switch planta = findViewById(R.id.grassButton);
+        Switch agua = findViewById(R.id.waterButton);
+
         ImageButton limpiar = findViewById(R.id.clearButton);
         //Evento al darle click en limpiar
         limpiar.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +116,13 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
             public void onClick(View view) {
                 Log.i(getString(R.string.comprobacion), getString(R.string.texto_del_filtro_antes_de_ser_eliminado) + filterInput.getText());
                 filterInput.setText("");
+                fuego.setChecked(false);
+                planta.setChecked(false);
+                agua.setChecked(false);
+                recyclerView.setAdapter(pokemonAdapter);
+
                 Toast.makeText(MainActivity.this, getString(R.string.clearLog), Toast.LENGTH_SHORT).show();
+
                 Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.texto_del_filtro_eliminado) + filterInput.getText());
             }
         });
@@ -122,9 +132,6 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
         filtrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Switch fuego = findViewById(R.id.fireButton);
-                Switch planta = findViewById(R.id.grassButton);
-                Switch agua = findViewById(R.id.waterButton);
                 //traemos todos los switch para ver si estan o no marcados
                 ArrayList<Pokemon.tipo> tipos = new ArrayList<>(); //array de los tipos marcados
                 ArrayList<Pokemon> pokemonsFiltered = new ArrayList<>(pokemons); //array de los pokemons resultantes, de primeras se inicializa con los mismos datos que el array de pokemons

@@ -13,6 +13,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/pokemon_normal"
         android:text="@string/filterButtonText"
         app:layout_constraintStart_toEndOf="@+id/filterInput"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +25,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/fireButtonText"
+        android:fontFamily="@font/pokemon_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filterInput" />
 
@@ -36,6 +38,7 @@
         android:ems="10"
         android:hint="@string/filtro"
         android:inputType="text"
+        android:fontFamily="@font/pokemon_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,6 +49,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/waterButtonText"
+        android:fontFamily="@font/pokemon_normal"
         app:layout_constraintStart_toEndOf="@+id/fireButton"
         app:layout_constraintTop_toBottomOf="@+id/filterButton" />
 
@@ -56,6 +60,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/grassButtonText"
+        android:fontFamily="@font/pokemon_normal"
         app:layout_constraintStart_toEndOf="@+id/waterButton"
         app:layout_constraintTop_toBottomOf="@+id/filterButton" />
 
