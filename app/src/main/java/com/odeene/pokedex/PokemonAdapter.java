@@ -21,16 +21,17 @@ import java.util.Map;
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
     ArrayList<Pokemon> pokemons;
     OnItemClickListener listener; // Indicamos que tendra un evento click
-    private Map<Pokemon.tipo, Integer> tipoColorMap = new HashMap<>();
+    private Map<Pokemon.tipo, Integer> tipoColorMap = new HashMap<>(); //Mapa para guardar colores
 
     public interface OnItemClickListener{
         void onItemClick(Pokemon pokemon);
     }
 
+    // Constructor del adapter
     public PokemonAdapter(ArrayList<Pokemon> pokemons, OnItemClickListener listener) {
         this.pokemons = pokemons;
         this.listener = listener;
-
+        //Añadimos los colores al mapa
         tipoColorMap.put(Pokemon.tipo.ROCA, Color.parseColor("#8B4513"));
         tipoColorMap.put(Pokemon.tipo.PLANTA, Color.GREEN);
         tipoColorMap.put(Pokemon.tipo.FUEGO, Color.RED);
@@ -59,7 +60,9 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         holder.numero.setText(String.valueOf(pokemon.getNumero()));
     }
 
+    // Metodo para pintar los tipos del Pokemon
     private SpannableStringBuilder pintarTipos(Pokemon.tipo[] tipos){
+        //Creamos un SpannableStringBuilder para los tipos ya que haremos modificaciones en la cadena añadiendole colores
         SpannableStringBuilder ss = new SpannableStringBuilder(tipos.length == 2? tipos[0].toString() + "/" + tipos[1].toString() : tipos[0].toString());
         int startIndex = 0;
         for (Pokemon.tipo tipo : tipos) {
@@ -75,18 +78,20 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     }
 
     public class PokemonViewHolder extends RecyclerView.ViewHolder{
-        ImageView imagen; //Elementos de la vista
+        //Elementos de la vista
+        ImageView imagen;
         TextView nombre;
         TextView tipos;
         TextView numero;
-
+        // Constructor donde añadimos a la vista los valores de cada uno de los Pokemon
         public PokemonViewHolder(@NonNull View itemView) {
             super(itemView);
             imagen = itemView.findViewById(R.id.imageView);
             nombre = itemView.findViewById(R.id.name);
             tipos = itemView.findViewById(R.id.types);
             numero = itemView.findViewById(R.id.number);
-            itemView.setOnClickListener(new View.OnClickListener() { //Establecemos el metodo on click, despues de tiene que implementar donde se cree el adaptador
+            //Establecemos el metodo on click, despues de tiene que implementar donde se cree el adaptador
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(listener != null)

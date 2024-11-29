@@ -7,13 +7,17 @@
     <string name="fireButtonText">Lume</string>
     <string name="waterButtonText">Auga</string>
     <string name="grassButtonText">Planta</string>
-    <string name="filtro_realizado">Filtro realizado</string>
+    <string name="filtro_realizado">Filtro feito</string>
     <string name="clearLog">Filtro limpado</string>
     <string name="error">ERROR</string>
-    <string name="error_filtrando_por_tipos_error_en_cuestion">"Error filtrando por tipos, error en cuestion: "</string>
-    <string name="error_filtrando_por_nombre_error_en_cuestion">"Error filtrando por nombre, error en cuestion: "</string>
-    <string name="click_en_un_pokemon">Click en un pokemon</string>
+    <string name="error_filtrando_por_tipos_error_en_cuestion">"Error no filtrando por tipos, error en cuestion: "</string>
+    <string name="error_filtrando_por_nombre_error_en_cuestion">"Error no filtrando por nombre, error en cuestion: "</string>
+    <string name="click_en_un_pokemon">Click nun pokemon</string>
     <string name="comprobacion">Comprobacion</string>
     <string name="texto_del_filtro_antes_de_ser_eliminado">"Texto do filtro antes de eliminarse: "</string>
     <string name="texto_del_filtro_eliminado">"Texto do filtro eliminado: "</string>
+    <string name="botonLimpiar">Boton de limpar</string>
+    <string name="creando_activity">Xerando Activity</string>
+    <string name="parando_aplicacion">Parando aplicación</string>
+    <string name="saliendo_de_la_aplicacion">Salindo da aplicación</string>
 </resources>

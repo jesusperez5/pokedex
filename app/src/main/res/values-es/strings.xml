@@ -16,4 +16,8 @@
     <string name="comprobacion">Comprobacion</string>
     <string name="texto_del_filtro_antes_de_ser_eliminado">"Texto del filtro antes de ser eliminado: "</string>
     <string name="texto_del_filtro_eliminado">"Texto del filtro eliminado: "</string>
+    <string name="botonLimpiar">Boton de limpiar</string>
+    <string name="creando_activity">Creando Activity</string>
+    <string name="parando_aplicacion">Parando aplicación</string>
+    <string name="saliendo_de_la_aplicacion">Saliendo de la aplicación</string>
 </resources>

@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity implements PokemonAdapter.OnItemClickListener {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.creando_activity));
         //Declaramos el array de pokemons
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>(Arrays.asList(
                 new Pokemon("Bulbasaur", 1, new Pokemon.tipo[]{Pokemon.tipo.PLANTA, Pokemon.tipo.VENENO}, "Starter de tipo planta", R.drawable.bulbasaur),
@@ -146,9 +148,9 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                 if(tipos.size() > 0 && tipos.size() < 3 || !nombreFiltro.equals("")){ // si esta 1 o dos marcados o bien hay un nombre para filtrar...
                     if(tipos.size() > 0 && tipos.size() < 3) { // si hay 1 o 2 tipos... (esto podria haberlo echo sin la condicion de menor de 3 pero no le veo sentido)
                        try {
-                           pokemonsFiltered = pokemonsFiltered.stream() // podria haberlo filtrado con bucles pero quise usar programación funcional
+                           pokemonsFiltered = new ArrayList<>(pokemonsFiltered.stream() // podria haberlo filtrado con bucles pero quise usar programación funcional
                                    .filter(pokemon -> Arrays.stream(pokemon.getTipos()).anyMatch(tipos::contains))
-                                   .collect(Collectors.toCollection(ArrayList::new));
+                                   .collect(Collectors.toCollection(LinkedHashSet::new)));
                        } catch (Exception e) {
                            Log.e(getString(R.string.error), getString(R.string.error_filtrando_por_tipos_error_en_cuestion) + e.getMessage());
                        }
@@ -177,5 +179,17 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
     public void onItemClick(Pokemon pokemon) { // Evento para cuando clickas en un pokemon
         Log.i(getString(R.string.comprobacion), getString(R.string.click_en_un_pokemon));
         Toast.makeText(this, pokemon.getDescripcion(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.parando_aplicacion));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.saliendo_de_la_aplicacion));
     }
 }

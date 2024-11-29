@@ -16,4 +16,8 @@
     <string name="error_filtrando_por_nombre_error_en_cuestion">"Error filtrando por nombre, error en cuestion: "</string>
     <string name="click_en_un_pokemon">Click en un pokemon</string>
     <string name="botonLimpiar">Boton de limpiar</string>
+    <string name="creando_activity">Creando Activity</string>
+    <string name="parando_aplicacion">Parando aplicación</string>
+    <string name="saliendo_de_la_aplicacion">Saliendo de la aplicación</string>
+    <string name="imagen_pokemon">Imagen Pokemon</string>
 </resources>
