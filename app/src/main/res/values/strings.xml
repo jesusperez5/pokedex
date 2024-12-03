@@ -20,4 +20,5 @@
     <string name="parando_aplicacion">Parando aplicación</string>
     <string name="saliendo_de_la_aplicacion">Saliendo de la aplicación</string>
     <string name="imagen_pokemon">Imagen Pokemon</string>
+    <string name="main">Principal</string>
 </resources>

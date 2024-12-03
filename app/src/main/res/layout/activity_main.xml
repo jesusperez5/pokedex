@@ -11,8 +11,8 @@
         android:id="@+id/filterButton"
         android:layout_width="110dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/pokemon_normal"
         android:text="@string/filterButtonText"
         app:layout_constraintStart_toEndOf="@+id/filterInput"
@@ -34,11 +34,11 @@
         android:layout_width="188dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
+        android:fontFamily="@font/pokemon_normal"
         android:hint="@string/filtro"
         android:inputType="text"
-        android:fontFamily="@font/pokemon_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,13 +79,40 @@
         android:id="@+id/clearButton"
         android:layout_width="79dp"
         android:layout_height="65dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="64dp"
         android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/botonLimpiar"
         android:scaleType="fitXY"
         app:layout_constraintStart_toEndOf="@+id/filterButton"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/basura" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/mainTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday" />
+    </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

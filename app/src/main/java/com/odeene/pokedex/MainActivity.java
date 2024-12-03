@@ -2,12 +2,13 @@ package com.odeene.pokedex;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
             return insets;
         });
         Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.creando_activity));
+
         //Declaramos el array de pokemons
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>(Arrays.asList(
                 new Pokemon("Bulbasaur", 1, new Pokemon.tipo[]{Pokemon.tipo.PLANTA, Pokemon.tipo.VENENO}, "Starter de tipo planta", R.drawable.bulbasaur),
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
         Switch agua = findViewById(R.id.waterButton);
 
         ImageButton limpiar = findViewById(R.id.clearButton);
+        registerForContextMenu(limpiar);
         //Evento al darle click en limpiar
         limpiar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,8 +128,8 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                 planta.setChecked(false);
                 agua.setChecked(false);
                 recyclerView.setAdapter(pokemonAdapter);
-
-                Toast.makeText(MainActivity.this, getString(R.string.clearLog), Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.main), getString(R.string.clearLog), Snackbar.LENGTH_LONG);
+                defaultListenerSnackbar(snackbar);
 
                 Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.texto_del_filtro_eliminado) + filterInput.getText());
             }
@@ -166,19 +172,64 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                     }
                     PokemonAdapter pokemonFilteredAdapter = new PokemonAdapter(pokemonsFiltered, MainActivity.this); // creamos el nuevo adapter con los pokemons filtrados
                     recyclerView.setAdapter(pokemonFilteredAdapter);
-                    Toast.makeText(MainActivity.this, R.string.filtro_realizado, Toast.LENGTH_SHORT).show();
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.main), getString(R.string.filtro_realizado), Snackbar.LENGTH_LONG);
+                    defaultListenerSnackbar(snackbar);
                 } else {
                     recyclerView.setAdapter(pokemonAdapter);
                 }
             }
         });
+        TabLayout tl = findViewById(R.id.tabLayout);
+        tl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(!tab.getText().equals(getString(R.string.main))){
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.main), "Proximamente", Snackbar.LENGTH_LONG);
+                    defaultListenerSnackbar(snackbar);
+                }
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                if(tab.getText().equals(getString(R.string.main))){
+                    tl.selectTab(tab);
+                }
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    public void defaultListenerSnackbar(Snackbar snackbar){
+        snackbar.setAction("cerrar", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        snackbar.addCallback(new Snackbar.Callback() {
+                                 @Override
+                                 public void onShown(Snackbar sb) {
+                                     // Acción al mostrar la Snackbar
+                                     System.out.println("Snackbar mostrada");
+                                 }
+                                 @Override
+                                 public void onDismissed(Snackbar transientBottomBar, int event) {
+                                     // Acción al cerrar la Snackbar
+                                     System.out.println("Snackbar cerrada");
+                                 }
+                             }
+        );
+        snackbar.show();
     }
 
     @Override
     public void onItemClick(Pokemon pokemon) { // Evento para cuando clickas en un pokemon
         Log.i(getString(R.string.comprobacion), getString(R.string.click_en_un_pokemon));
-        Toast.makeText(this, pokemon.getDescripcion(), Toast.LENGTH_SHORT).show();
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), pokemon.getDescripcion(), Snackbar.LENGTH_LONG);
+        defaultListenerSnackbar(snackbar);
     }
 
     @Override
@@ -191,5 +242,15 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
     protected void onDestroy() {
         super.onDestroy();
         Log.i(MainActivity.this.getString(R.string.comprobacion), getString(R.string.saliendo_de_la_aplicacion));
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        // Establece el título del menú
+        menu.setHeaderTitle("opciones:");
+
+        // Infla el menú desde el archivo XML
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_contextual, menu);
     }
 }
