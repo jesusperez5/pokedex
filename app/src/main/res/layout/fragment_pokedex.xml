@@ -1,12 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PokedexFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pokedexrvf"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/filterButton"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/pokemon_normal"
+            android:text="@string/filterButtonText"
+            app:layout_constraintStart_toEndOf="@+id/filterInput"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/fireButton"
+            android:layout_width="93dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/pokemon_normal"
+            android:text="@string/fireButtonText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filterInput" />
+
+        <EditText
+            android:id="@+id/filterInput"
+            android:layout_width="188dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:fontFamily="@font/pokemon_normal"
+            android:hint="@string/filtro"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/waterButton"
+            android:layout_width="93dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/pokemon_normal"
+            android:text="@string/waterButtonText"
+            app:layout_constraintStart_toEndOf="@+id/fireButton"
+            app:layout_constraintTop_toBottomOf="@+id/filterButton" />
+
+        <Switch
+            android:id="@+id/grassButton"
+            android:layout_width="93dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/pokemon_normal"
+            android:text="@string/grassButtonText"
+            app:layout_constraintStart_toEndOf="@+id/waterButton"
+            app:layout_constraintTop_toBottomOf="@+id/filterButton" />
+
+        <ImageButton
+            android:id="@+id/clearButton"
+            android:layout_width="79dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/basura"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/botonLimpiar"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/filterButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pokedexrvf"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fireButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

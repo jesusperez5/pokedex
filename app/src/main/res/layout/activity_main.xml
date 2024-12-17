@@ -7,88 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/filterButton"
-        android:layout_width="110dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/pokemon_normal"
-        android:text="@string/filterButtonText"
-        app:layout_constraintStart_toEndOf="@+id/filterInput"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/fireButton"
-        android:layout_width="93dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/fireButtonText"
-        android:fontFamily="@font/pokemon_normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filterInput" />
-
-    <EditText
-        android:id="@+id/filterInput"
-        android:layout_width="188dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/filtro"
-        android:inputType="text"
-        android:fontFamily="@font/pokemon_normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/waterButton"
-        android:layout_width="93dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/waterButtonText"
-        android:fontFamily="@font/pokemon_normal"
-        app:layout_constraintStart_toEndOf="@+id/fireButton"
-        app:layout_constraintTop_toBottomOf="@+id/filterButton" />
-
-    <Switch
-        android:id="@+id/grassButton"
-        android:layout_width="93dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/grassButtonText"
-        android:fontFamily="@font/pokemon_normal"
-        app:layout_constraintStart_toEndOf="@+id/waterButton"
-        app:layout_constraintTop_toBottomOf="@+id/filterButton" />
-
-    <ImageButton
-        android:id="@+id/clearButton"
-        android:layout_width="79dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/botonLimpiar"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/filterButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/basura" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="com.odeene.pokedex.PokedexFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="407dp"
+        android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fireButton" />
+        app:menu="@menu/menufragments" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView3"
+        android:name="com.odeene.pokedex.PokedexFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
