@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -99,11 +100,13 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
         //creamos el adaptador
         PokemonAdapter pokemonAdapter = new PokemonAdapter(pokemons, this);
         //creamos el recyclerView
-        RecyclerView recyclerView = findViewById(R.id.pokedex);
+        PokedexFragment pf = new PokedexFragment(pokemonAdapter);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView2, pf).commit();
+        //RecyclerView recyclerView = findViewById(R.id.pokedex);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //Establecemos el adaptador en el recyclerView
-        recyclerView.setAdapter(pokemonAdapter);
+        //recyclerView.setAdapter(pokemonAdapter);
 
         EditText filterInput = findViewById(R.id.filterInput);
 
@@ -121,7 +124,8 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                 fuego.setChecked(false);
                 planta.setChecked(false);
                 agua.setChecked(false);
-                recyclerView.setAdapter(pokemonAdapter);
+                pf.setPokemonAdapter(pokemonAdapter);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, pf).commit();
 
                 Toast.makeText(MainActivity.this, getString(R.string.clearLog), Toast.LENGTH_SHORT).show();
 
@@ -165,10 +169,14 @@ public class MainActivity extends AppCompatActivity implements PokemonAdapter.On
                         }
                     }
                     PokemonAdapter pokemonFilteredAdapter = new PokemonAdapter(pokemonsFiltered, MainActivity.this); // creamos el nuevo adapter con los pokemons filtrados
-                    recyclerView.setAdapter(pokemonFilteredAdapter);
+                    PokedexFragment pokedexFragment = new PokedexFragment(pokemonFilteredAdapter);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, pokedexFragment).commit();
+                    //recyclerView.setAdapter(pokemonFilteredAdapter);
                     Toast.makeText(MainActivity.this, R.string.filtro_realizado, Toast.LENGTH_SHORT).show();
                 } else {
-                    recyclerView.setAdapter(pokemonAdapter);
+                    pf.setPokemonAdapter(pokemonAdapter);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, pf).commit();
+                    //recyclerView.setAdapter(pokemonAdapter);
                 }
             }
         });

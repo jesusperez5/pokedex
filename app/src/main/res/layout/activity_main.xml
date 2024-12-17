@@ -64,17 +64,6 @@
         app:layout_constraintStart_toEndOf="@+id/waterButton"
         app:layout_constraintTop_toBottomOf="@+id/filterButton" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pokedex"
-        android:layout_width="match_parent"
-        android:layout_height="700dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fireButton" />
-
     <ImageButton
         android:id="@+id/clearButton"
         android:layout_width="79dp"
@@ -87,5 +76,19 @@
         app:layout_constraintStart_toEndOf="@+id/filterButton"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/basura" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.odeene.pokedex.PokedexFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fireButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
